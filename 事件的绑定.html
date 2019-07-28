@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function () {
+
+        var btn01 = document.getElementById('btn01');
+        //谷歌火狐使用方式
+        btn01.addEventListener('click', function () {
+            alert('1');
+        }, false);
+        //ie8使用方式
+        btn01.attachEvent('onclick', function () {
+            alert('1')
+        });
+        /* obj 要绑定时间的对象
+            eventStr 事件的字符串
+            callBack 回调函数
+         */
+        function bind(obj, eventStr, callBack) {
+            //一般浏览器使用方式
+            if (obj.addEventListener) {
+                obj.addEventListener(eventStr, callBack, false);
+            } else {
+                // callBack.call(obj);
+                //IE8使用方式
+                // obj.attachEvent('on' + eventStr, callBack);
+                obj.attachEvent('on'+eventStr,function(){
+                    callBack.call(obj);
+                })
+            }
+        }
+        bind(btn01, 'click', function () {
+
+        })
+    }
+</script>
+
+<body>
+    <button id="btn01"></button>
+</body>
+
+</html>

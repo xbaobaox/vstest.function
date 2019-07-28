@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    img {
+        width: 500px;
+        border-radius: 10px;
+        /* height: 281.25px; */
+    }
+
+    #outer {
+        width: 510px;
+        height: 281.25px;
+        margin: 50px auto;
+        background-color: rgb(73, 101, 138);
+        padding: 5px 0;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #imgList {
+        /* width: 2600px; */
+        position: absolute;
+        left: 0px;
+    }
+
+    #imgList li {
+        float: left;
+        margin: 0 5px;
+    }
+
+    #navDiv {
+        position: absolute;
+        bottom: 10px;
+
+    }
+
+    #navDiv a {
+        border-radius: 15px;
+        width: 15px;
+        height: 15px;
+        float: left;
+        margin: 0 5px;
+        background-color: rgb(230, 79, 154);
+        /* opacity: 0.5;
+        /* ie8的兼容处理 */
+        /* filter: alpha(opacity=50); */
+    }
+
+    #navDiv a:hover {
+        background-color: rgb(192, 187, 187);
+    }
+</style>
+<script src="tools.js"></script>
+<script>
+    window.onload = function () {
+        var timer;
+        clearInterval(timer);
+        //为overflow:hidden能显示完整的图片功能
+        var imgList = document.getElementById('imgList');
+        var imgArr = document.getElementsByTagName('img');
+        imgList.style.width = 510 * imgArr.length + 'px';
+        //让导航条居中方法
+        var navDiv = document.getElementById('navDiv');
+        var outer = document.getElementById('outer');
+        navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + 'px';
+
+        var allA = document.getElementsByTagName('a');
+        var index = 0;
+        allA[index].style.backgroundColor = 'rgb(192, 187, 187)';
+        for (var i = 0; i < allA.length; i++) {
+
+            allA[i].num = i;
+            allA[i].onclick = function () {
+                index = this.num;
+                // imgList.style.left = -510 * index + 'px';
+                setA();
+                move(imgList, 'left', -510 * index, 30, function () {
+                    autoChg();
+                });
+            };
+        };
+        autoChg();
+        function setA() {
+            if (index >= imgArr.length - 1) {
+                index = 0;
+                imgList.style.left = 0;
+            }
+            for (var i = 0; i < allA.length; i++) {
+                //用空串把background颜色去掉,显示原本css的样式;
+                allA[i].style.backgroundColor = '';
+            };
+            allA[index].style.backgroundColor = 'rgb(192, 187, 187)'
+        };
+        function autoChg() {
+            timer = setInterval(function () {
+                index++;
+                index = index % imgArr.length;
+                move(imgList, 'left', -510 * index, 30, function () {
+                    setA();
+                });
+            }, 3000);
+        }
+    };
+</script>
+
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li>
+                <img src="image/5c52072833c333ef68ec45cfa97b3e78.jpg" alt="">
+            </li>
+            <li>
+                <img src="image/49f2aa6015fc3d44a0efecfa0fac1f7d.jpg" alt="">
+            </li>
+            <li>
+                <img src="image/69f8d5aefbe93d9403e0e7dab77d107f.jpg" alt="">
+            </li>
+            <li>
+                <img src="image/fubuki-one-punch-man-uhdpaper.com-4K-34.jpg" alt="">
+            </li>
+            <li>
+                <img src="image/taejune-kim-smile-taejune.jpg" alt="">
+            </li>
+            <li>
+                <img src="image/5c52072833c333ef68ec45cfa97b3e78.jpg" alt="">
+            </li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+
+</html>

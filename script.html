@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1 {
+         margin:0;
+        }
+    </style>
+    <script>
+        // function mianji(r){
+        //     return 3.14*r*r;
+        // }
+        // var result
+        // result=mianji(10);
+        // console.log(result);
+
+        // function sayHello(fuck) {
+        //     console.log(fuck.name + fuck.age + fuck.gender + fuck.address);
+        // }
+        // var obj = {
+        //     name: "孙悟空",
+        //     age: 18,
+        //     gender: "男",
+        //     address: "花果山"
+        // };
+        // sayHello(obj);
+        // function fun(a) {
+        //     a(obj);
+        // }
+        // fun(sayHello);
+        // fun(function(){alert("hello")});
+        // fun(mianji);
+        // for(var n in window){
+        //     console.log(window[n]);
+
+        // }
+
+
+        // function createPerson(name,age){
+        //     var obj=new Object();
+        //     //向对象中添加属性
+        //     obj.name=name; //对象属性名称要一样
+        //     obj.age=age;
+        //     obj.sayName=function(){
+        //     alert(this.name);
+        //     }
+        //     return obj;
+        // }
+        // var obj2=createPerson("tom",18);
+        // var obj3=createPerson("bob",29);
+        // console.log(obj2);
+        // console.log(obj3);
+
+        // function Person(name,age){
+        //     this.name=name;
+        //     this.age=age;
+        // }
+        // var per = new Person("孙悟空",19); 
+        // var per1 = new Person("白骨精",20);
+        // console.log(per);
+        // console.log(per1);
+        // console.log(per instanceof Person);
+        // var per= null;
+        // var per1 =null;
+        // var obj2=null;
+        // var obj3=null;
+        // var obj=null;
+        // obj3.sayName();
+        // var d=new Date();
+        // console.log(new Date());
+        // var d2= new Date("12/03/2019");
+        // var time =d2.getTime();
+        // console.log(d2.getTime());
+        window.onload = function () {
+            function getStyle() {
+                var style=getComputedStyle(box1,null);
+                for (arr in style){
+                    console.log(arr);
+                }
+            }
+            getStyle();
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>

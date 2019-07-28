@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .boss {
+        width: 620px;
+        margin: 0 auto;
+        text-align: center;
+        background: rgb(228, 228, 228);
+        margin-top: 30px;
+
+    }
+
+    img {
+        width: 600px;
+        display: block;
+        padding: 10px;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var img = document.getElementsByTagName("img")[0];
+        var imgArr = ['image/5c52072833c333ef68ec45cfa97b3e78.jpg', 'image/49f2aa6015fc3d44a0efecfa0fac1f7d.jpg', 'image/69f8d5aefbe93d9403e0e7dab77d107f.jpg']
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+        var index = 0;
+        var info=document.getElementById('info');
+        prev.onclick = function () {
+            index--;
+            if (index < 0) {
+                index = 0
+            }
+            img.src = imgArr[index]
+            info.innerHTML='一共'+(imgArr.length)+'张图片 第'+(index+1)+'张图片';
+        }
+        next.onclick = function () {
+            index++;
+            if (index > imgArr.length-1) {
+                index = imgArr.length-1;
+            }
+            img.src = imgArr[index]
+            info.innerHTML='一共'+(imgArr.length)+'张图片 第'+(index+1)+'张图片';
+        }
+        
+    }
+</script>
+
+<body>
+    <div class="boss">
+        <p id="info">当前共3张图片,第1张</p>
+        <img src="image/5c52072833c333ef68ec45cfa97b3e78.jpg" alt="轮播图">
+        <button id="prev">上一张</button> <button id="next">下一张</button>
+    </div>
+</body>
+
+</html>

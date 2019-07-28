@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var btn01 = document.getElementById('btn01');
+            var box1 = document.getElementById('box1');
+            btn01.onclick = function () {
+                box1.style.width = '300px';
+                box1.style.backgroundColor = "yellow"
+            }
+            var btn02 = document.getElementById('btn02');
+            btn02.onclick = function () {
+                // alert(box1.style.width);
+
+            }
+            //定义一个函数,用来获取指定元素的当前样式
+            //参数:obj 要获取样式的元素
+            //    name 获取的样式名            
+
+            function getStyle(obj, name) {
+                if (window.getComputedStyle) {
+
+                    //正常浏览器的方式
+                    return getComputedStyle(obj, null)[name];
+                } else {
+                    //IE8的方式
+                    return obj.currentStyle[name];
+
+                }
+                //三目运算符方法
+                // return window.getComputedStyle?getComputedStyle(obj.null)[name]:obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn01">点我</button>
+    <button id="btn02">读取样式</button>
+    <br>
+    <div id="box1">
+
+    </div>
+</body>
+
+</html>

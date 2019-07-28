@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ê²Ã´¹í</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: aliceblue;
+            outline: none;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        #nov {
+            height: 56px;
+            background-color: #2F333F;
+            /* box-sizing: border-box; */
+
+        }
+
+        .log {
+
+            /* height: 56px; */
+
+        }
+
+        .imglogo {
+            width: 120px;
+            margin-top: 13px;
+            border: none;
+            outline: none;
+            margin-right: 80px;
+            float: left;
+        }
+        .hotlogo{
+            width: 25px;
+            margin-left: 1px;
+        }
+
+        li {
+            /* position: relative; */
+            float: left;
+            /* height: 56px; */
+            line-height: 56px;
+            margin-right: 40px;
+           
+            color: #d8d8d8;
+           
+
+            transition-property: color;
+            transition-duration: 0.3s;
+            transition-timing-function:ease-out;
+            transition-delay: 0s
+        }
+
+        li:hover {
+            color: rgba(255, 0, 0, 0.322);
+        }
+
+        .inputradius {
+            border-radius: 16px;
+            height: 32px;
+            font-size: 14px;
+            padding: 0 16px;
+            outline: none;
+            border: none;
+            /* display: inline-block; */
+            line-height: 56px;
+            margin-top: 13px;
+        }
+
+        .fc {
+            border-bottom: solid red;
+            padding-bottom: 0px;
+            box-sizing: border-box;
+            height: 56px;
+        }
+        .search{
+            float: right;
+            margin-right: 500px;
+        }
+        .novTxt {}
+    </style>
+</head>
+
+<body>
+    <div id="nov">
+        <div class="log">
+            <img src="image/pclogo.png" alt="logo" class="imglogo">
+        </div>
+        <div>
+            <a href="">
+                <ul class="novTxt">
+                    <li class="fc">7 x 24</li>
+                    <li>ä¸»é?˜åº“</li>
+                    <li>æ™ºèƒ½ç›?ç›?
+                        <img src="image/HOT.png" alt="" class="hotlogo">
+                    </li>
+                    <li>åŽŸåˆ›</li>
+                    <li>ç²¾é€?
+                        <img src="image/HOT.png" alt="" class="hotlogo">
+                    </li>
+            </a>
+            <form action="post" autocomplete="off" class="search">
+                <input type="text" class="inputradius" placeholder="æœä¸»é¢?/ä¸?è‚?/æ–‡ç« ">
+            </form>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+
+</html>

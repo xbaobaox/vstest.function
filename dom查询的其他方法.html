@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    window.onload=function(){
+
+    // var body = document.getElementById('body')[0];
+    body = document.body;
+    var all = document.all;
+    //document.all 代表页面中所有的元素
+    // var box1 = document.getElementsByClassName('box1'); //此方法不兼容ie8
+
+    var box1 = document.querySelector(".box1");
+    console.log(box1);
+    //document.querySelector 可以根据css选择器来获取对象 支持ie8 使用该方法总会返回唯
+    // 一的元素,如果满足条件有多个,只会返回第一个
+    var div=document.querySelectorAll('#div2');//和querySelector一样 不同是会把所有的元素封装到数组中
+    //即使符合条件的只有一个,也会返回数组.
+    console.log(div[0]);
+    }
+</script>
+
+<body>
+    <div class="box1">
+        
+        <div></div>
+
+    </div>
+    <div class="box1">
+            我是box1
+            <div>我是box1里的box</div>
+    
+        </div>
+        <div class="box1" id="div2">
+                我是box1
+                <div>我是box1里的box</div>
+        
+            </div>
+
+</body>
+
+</html>

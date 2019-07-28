@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 800px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 800px;
+            border-radius: 15px;
+            border: 1px solid rgb(202, 202, 202);
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var imgArr = ['image/5c52072833c333ef68ec45cfa97b3e78.jpg', 'image/49f2aa6015fc3d44a0efecfa0fac1f7d.jpg', 'image/69f8d5aefbe93d9403e0e7dab77d107f.jpg'];
+            var index = 0;
+            var timer;
+            var img = document.getElementById('img');
+            var start = document.getElementById('start');
+            var end = document.getElementById('end');
+            start.onclick = function () {
+                clearInterval(timer);
+                //点击多次会激活多个定时器,图片切换速度会过快,结束只能结束最后一个timer,之前的不能结束
+                timer = setInterval(function () {
+                    index++;
+                    index = index % imgArr.length;
+                    img.src = imgArr[index];
+                }, 1000);
+
+            };
+            end.onclick = function () {
+                clearInterval(timer);
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div class="box1">
+        <img src="image/5c52072833c333ef68ec45cfa97b3e78.jpg" alt="" id='img'>
+        <button id="start">开始</button>
+        <button id="end">结束</button>
+
+    </div>
+</body>
+
+</html>

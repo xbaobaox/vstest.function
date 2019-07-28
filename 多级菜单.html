@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .nav {
+            /* height: 30px; */
+            /* width: 606px;
+            margin: 0 auto;  */
+            /* margin: 50px; */
+            float: right;
+        }
+
+        ul li {
+            float: left;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            margin-right: 1px;
+            /* display: block; */
+        }
+
+        ul li a {
+            font-size: 12px;
+            line-height: 40px;
+            width: 100px;
+            height: 40px;
+            /* margin-right: 1px; */
+            background-color: rgb(233, 233, 233);
+            display: block;
+        }
+
+        ul li a:hover {
+            background-color: rgb(85, 85, 85);
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        .secnav {
+            display: none;
+        }
+
+        .nav:hover .secnav {
+            display: list-item;
+            /* margin-top: px;  */
+            list-style: none;
+        }
+
+        .nav .secnavli{
+            position: relative;
+        }
+        .thdnav{
+            position: absolute;
+            left: 100px;
+            top: 0px;
+            display: none;
+        }
+
+        .secnav li:hover .thdnav {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="nav">
+        <li><a href="">一级菜单</a>
+            <ul class="secnav">
+                <li class="secnavli"><a href="">二级菜单</a>
+                    <ul class="thdnav">
+                        <li><a href="">三级菜单</a></li>
+                        <li><a href="">三级菜单</a></li>
+                        <li><a href="">三级菜单</a></li>
+                        <li><a href="">三级菜单</a></li>
+                    </ul>
+                </li>
+                <li><a href="">二级菜单</a></li>
+                <li><a href="">二级菜单</a></li>
+                <li><a href="">二级菜单</a></li>
+                <li><a href="">二级菜单</a></li>
+            </ul>
+        </li>
+        <li><a href="">一级菜单</a></li>
+        <li><a href="">一级菜单</a></li>
+        <li><a href="">一级菜单</a></li>
+        <li><a href="">一级菜单</a></li>
+        <li><a href="">一级菜单</a></li>
+    </ul>
+
+</body>
+
+</html>

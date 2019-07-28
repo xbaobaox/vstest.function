@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box1 {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            /* 可以让ie正常获取到值,所以用left */
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var box1 = document.getElementById('box1');
+            var btn01 = document.getElementById('btn01');
+            var btn02 = document.getElementById('btn02');
+            // var timer;
+            btn01.onclick = function () {
+                // clearInterval(timer);
+                // timer = setInterval(function () {
+                //     var oldVl = parseInt(getStyle(box1, 'left'));//parseInt(a,b) 字符串转换成num,a是字符串,b是2-36数字,代表的是进制;
+                //     var newVl = oldVl + 10;
+                //     box1.style.left = newVl + 'px';
+                //     if (newVl == 800) {
+                //         clearInterval(timer);
+                //     }
+                //     if (newVl > 800) {
+                //         newVl = 800;
+                //     }
+                // }, 30);
+                move(box1, 800, 10);
+            };
+            btn02.onclick = function () {
+                // clearInterval(timer);
+                // timer = setInterval(function () {
+                //     if (newVl == 0) {
+                //         clearInterval(timer);
+                //     }
+                //     var oldVl = parseInt(getStyle(box1, 'left'));
+                //     var newVl = oldVl - 10;
+                //     box1.style.left = newVl + 'px';
+                //     if (newVl < 0) {
+                //         newVl = 0;
+                //     };
+                // }, 30);
+                move(box1, 0, 10);
+            }
+            /* 
+            obj:要执行动画的对象
+            target:执行动画的目标位置
+            speed:移动速度(正右,负左)
+            */
+            function move(obj, attr, target, speed, callback) {
+                clearInterval(obj.timer);
+                var current = parseInt(getStyle(obj, attr));
+                if (current > target) {
+                    speed = -speed;
+                }
+                obj.timer = setInterval(function () {
+                    var oldVl = parseInt(getStyle(obj, attr));
+                    var newVl = oldVl + speed;
+                    obj.style[attr] = newVl + 'px';
+
+
+                    if (speed < 0 && newVl < target || speed > 0 && newVl > target) {
+                        newVL = target;
+                    };
+                    if (newVl == target) {
+                        clearInterval(obj.timer);
+                        callback && callback();//回调函数,只会执行一次
+                    };
+                }, 30);
+            };
+            function getStyle(element, styleName) {
+
+                if (window.getComputedStyle) {
+                    return getComputedStyle(element, null)[styleName];
+                } else {
+                    return element.currentStyle[styleName];
+                };
+
+            };
+        };
+
+    </script>
+</head>
+
+<body>
+    <button id="btn02">btn02</button>
+    <button id="btn01">btn01</button>
+    <br><br>
+    <div id="box1"></div>
+</body>
+
+</html>

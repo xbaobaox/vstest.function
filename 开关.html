@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .s {
+            position: relative;
+        }
+
+        .s input {
+            display: none;
+        }
+
+        .s1 {
+            width: 100px;
+            height: 40px;
+            background: #CCC;
+            display: block;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .s1::before {
+            content: "";
+            width: 32px;
+            height: 32px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            position: absolute;
+        }
+
+        .s input:checked+.s1 {
+            background: #03a9f4;
+
+        }
+
+        .s input:checked+.s1::before {
+            left: 64px;
+            transition: 0.4s;
+        }
+
+        .s input+.s1::before {
+            transition: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <label class="s">
+        <input type="checkbox">
+        <span class="s1"></span>
+    </label>
+    <label class="s">
+        <input type="checkbox">
+        <span class="s2"></span>
+    </label>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .boss{
+        /* overflow: hidden; */
+        position: relative;
+    }
+.title{
+    width:1920px;
+    height:1080px;
+    background-color: rgba(117, 117, 117, 0.61);
+    opacity: 0;
+    text-align: center;
+    line-height: 1080px;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top:0;
+    /* display: none; */
+}
+.boss:hover .title{
+    display:block;
+    opacity: 1;
+    transition: 1s;
+
+}
+
+</style>
+<body>
+    <div class="boss">
+        <div class="img">
+            <img src="image/49f2aa6015fc3d44a0efecfa0fac1f7d.jpg" alt="">
+        </div>
+        <div class="title">
+            <h1>壁纸美图</h1>
+        </div>
+    </div>
+</body>
+</html>

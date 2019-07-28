@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function () {
+        var btn01 = document.getElementById('btn01');
+        var ul = document.getElementById('u1');
+        var allA = document.getElementsByTagName('a');
+        btn01.onclick = function () {
+            var li = document.createElement('li');
+            li.innerHTML = "<li><a href='javascript:;' class='link'>新的超链接</a></li>";
+            u1.appendChild(li);
+        }
+        //希望只绑定一次时间,即可应用到多个元素上,即使元素是后添加的,可以尝试将其绑定给元素的共同元素
+        //这个就叫事件的委派:将事件统一绑定给元素的共同的祖先元素,这样后代元素上的事件触发时,会一直冒泡到祖先元素,从而通过祖先元素的响应函数来处理事件.
+        //时间委派是利用了冒泡,通过委派可以减少事件绑定的次数,提高程序的性能;
+        //可以用正则表达式来解决className
+        u1.onclick = function (event) {
+            event = event || window.event;
+            if (event.target.className == 'link') {
+                alert('a')
+            }
+        }
+    };
+</script>
+
+<body>
+    <button id="btn01">创建连接</button>
+    <ul id="u1">
+        <li><a href="javascript:;" class="link">超链接一</a></li>
+        <li><a href="javascript:;" class="link">超链接二</a></li>
+        <li><a href="javascript:;" class="link">超链接三</a></li>
+    </ul>
+</body>
+
+</html>

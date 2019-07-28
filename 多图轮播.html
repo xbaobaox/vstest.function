@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        a :visited{
+            color: #fff;
+            /* display: inline-block; */
+    
+        } 
+
+        li{
+            list-style: none;
+            
+            width:40px;
+            height: 40px;
+            background-color: rgba(148, 148, 148, 0.349);
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .box {
+            /* width: 932.453px; */
+            height: 524.500px;
+            position: relative;
+          
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .img {
+            /* width: 932.453px; */
+            height: 524.500px;
+            overflow: hidden;
+            
+        }
+        .nav{
+            position:absolute;
+            right: 0;
+            bottom: 0;
+            float: left;
+            color: #fff;
+        }
+      .box :hover li{
+          background-color: rgba(131, 131, 131, 0.685);
+          transition: 1s;
+          color: #fff;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="img">
+            <img src="image/49f2aa6015fc3d44a0efecfa0fac1f7d.jpg" alt="" id="img1">
+            <img src="image/5c52072833c333ef68ec45cfa97b3e78.jpg" alt="" id="img2">
+            <img src="image/69f8d5aefbe93d9403e0e7dab77d107f.jpg" alt="" id="img3">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#img1">1</a></li>
+                <li><a href="#img2">2</a></li>
+                <li><a href="#img3">3</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

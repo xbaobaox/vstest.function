@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1 {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById('box1');
+            //给box1绑定鼠标滚动,火狐不支持该事件
+            //火狐使用DOMMouseScroll来绑定滚动时间
+            //该事件需要addEventListener()函数来绑定
+
+            box1.onmousewheel = function (event) {
+                event = event || window.event;
+                // event.wheelDelta;
+                //向上120 向下-120 不看大小 只看正负
+                // 火狐不支持wheelDelta 他的属性是detail 向上负3 下正3
+                // alert(event.wheelDelta);
+                if (event.wheelDelta > 0 || event.detail < 0) {
+                    box1.style.height = box1.clientHeight - 10 + 'px';
+                } else {
+                    box1.style.height = box1.clientHeight + 10 + 'px';
+
+                };
+                event.preventDefault && event.preventDefault();//火狐的取消默认行为,专用于addEventListener()
+                return false;//取消默认行为 火狐不行
+            };
+
+
+            bind(box1, 'DOMMouseScroll', box1.onmousewheel);
+        }
+        function bind(obj, eventStr, callback) {
+            if (obj.addEventListener) {
+                obj.addEventListener(eventStr, callback, false);
+            } else {
+                obj.attachEvent('on' + eventStr, function () {
+                    callback.call(obj);
+                })
+            };
+        };
+
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>
